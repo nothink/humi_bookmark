@@ -1,0 +1,47 @@
+{
+    "manifest_version": 2,
+    "name": "@humi_bookmark",
+    "version": "0.0.1",
+    "description": "Fumio Murakami",
+    "icons": {
+        "128": "img/fumio_icon_128.png"
+    },
+    "permissions": [
+        "*://*/*",
+        "tabs",
+        "activeTab",
+        "webRequest",
+        "declarativeContent"
+    ],
+    "page_action": {
+        "default_icon": {
+            "19": "img/fumio_icon_19.png",
+            "38": "img/fumio_icon_38.png"
+        },
+        "default_title": "@humi_bookmark"
+    },
+    "background": {
+        "scripts": [
+            "js/aws/aws-sdk-2.0.0.min.js",
+            "js/upload.js",
+            "js/background.js",
+            "js/backgroundRequests.js"
+        ],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://vcard.ameba.jp/*"
+            ],
+            "js": [
+                "js/aws/aws-sdk-2.0.0.min.js",
+                "js/refs/getPagesSource.js",
+                "js/upload.js",
+                "js/content_scripts.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": true
+        }
+    ]
+}
