@@ -1,7 +1,9 @@
 function onSiteLoad() {
-    const regex = /(c.|)stat100.ameba.jp\/vcard\/[-a-zA-Z0-9/._+]*.[a-zA-Z0-9]+/gm;
+    const regex = /(c.|)stat100.ameba.jp\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
     let html = DOMtoString(document);
     if (html) {
+        // replace all '\/' to '/'
+        html = html.replace(/\\\//g, '/');
         let files = [];
         let m;
         while ((m = regex.exec(html)) !== null) {
@@ -11,7 +13,9 @@ function onSiteLoad() {
             }
 
             // The result can be accessed through the `m`-variable.
-            files.push(m[0]);
+            // replace all '//' to '/'
+            let key = m[0].replace(/\/\//g, '/')
+            files.push(key);
         }
         if (files.length > 0) {
             upload(files);
@@ -20,3 +24,5 @@ function onSiteLoad() {
 }
 
 onSiteLoad();
+
+document.addEventListener('DOMNodeInserted', onSiteLoad);

@@ -29,8 +29,7 @@ function upload (array) {
               console.error(err);
               return [];
           } else {
-              console.log(params.Body);
-              console.log(data);
+              // console.log(data);
               return uploads;
           }
         });
