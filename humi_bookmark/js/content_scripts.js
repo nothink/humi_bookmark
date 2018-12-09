@@ -24,5 +24,3 @@ function onSiteLoad() {
 }
 
 onSiteLoad();
-
-document.addEventListener('DOMNodeInserted', onSiteLoad);
