@@ -1,4 +1,19 @@
-function onSiteLoad() {
+function removeAmbs() {
+    try {
+        let ambHeader = document.getElementById('ambHeader');
+        ambHeader.parentNode.removeChild(ambHeader);
+    } catch (e) {
+        ;
+    }
+    try {
+        let ambFooter = document.getElementById('ambFooter');
+        ambFooter.parentNode.removeChild(ambFooter);
+    } catch (e) {
+        ;
+    }
+}
+
+function uploadResources() {
     const regex = /(c.|)stat100.ameba.jp\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
     let html = DOMtoString(document);
     if (html) {
@@ -21,6 +36,11 @@ function onSiteLoad() {
             upload(files);
         }
     }
+}
+
+function onSiteLoad() {
+    removeAmbs();
+    uploadResources();
 }
 
 onSiteLoad();
