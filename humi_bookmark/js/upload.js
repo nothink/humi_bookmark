@@ -1,37 +1,58 @@
 AWS.config.update({
-    accessKeyId: '7RHAZOIGLCETV4Y83HMF',
-    secretAccessKey: 'B6oPITfLzrmKFGiNZyyCa2eo5L2V2ee1JlSsZFEF',
-    region: 'us-east-1'
-});
-var ep = new AWS.Endpoint('s3.wasabisys.com');
-var s3 = new AWS.S3({
-    endpoint: ep,
-    params: {Bucket: 'humi-bookmark'}
+    accessKeyId: wasabi.accessKeyId,
+    secretAccessKey: wasabi.secretAccessKey,
+    region: wasabi.region
 });
 
 // remove array's duplicates
 function removeArrayDuplicates(array) {
-  return array.filter(function(value, index, self) {
-    return self.indexOf(value) === index;
-  });
+    return array.filter(function(value, index, self) {
+        return self.indexOf(value) === index;
+    });
 }
 
-function upload (array) {
+function upload(array) {
     if (array.length > 0) {
-        var uploads = removeArrayDuplicates(array).sort();
-        var params = {
-            Key: Date.now().toString() + '.log',
-            ContentType: 'text/plain',
-            Body: uploads.join("\n") + '\n'
-        };
-        s3.putObject(params, function (err, data) {
-          if (err) {
-              console.error(err);
-              return [];
-          } else {
-              // console.log(data);
-              return uploads;
-          }
+        var sts = new AWS.STS( {endpoint: wasabi.stsEndpoint });
+        sts.assumeRole({
+            RoleArn: wasabi.stsRoleArn,
+            RoleSessionName: 'humi_bookmark',
+            DurationSeconds: 1200
+        }, (err, data) => {
+            if (err) {
+                console.error('Cannot assume role');
+                console.error(err, err.stack);
+            } else {
+                // remove dups
+                var uploads = removeArrayDuplicates(array).sort();
+
+                // set access keys and region
+                AWS.config.update({
+                    accessKeyId: data.Credentials.AccessKeyId,
+                    secretAccessKey: data.Credentials.SecretAccessKey,
+                    sessionToken: data.Credentials.SessionToken,
+                    region: wasabi.region
+                });
+
+                var s3 = new AWS.S3({
+                    endpoint: new AWS.Endpoint(wasabi.endpoint),
+                    params: { Bucket: 'humi-bookmark' }
+                });
+
+                s3.putObject({
+                    Key: Date.now().toString() + '.log',
+                    ContentType: 'text/plain',
+                    Body: uploads.join("\n") + '\n'
+                }, (err, data) => {
+                    if (err) {
+                        console.error('Failed to put objects');
+                        console.error(err, err.stack);
+                        return [];
+                    } else {
+                        return uploads;
+                    }
+                });
+            }
         });
     }
 }

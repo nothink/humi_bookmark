@@ -23,6 +23,7 @@
     "background": {
         "scripts": [
             "js/aws/aws-sdk-2.0.0.min.js",
+            "js/wasabi.js",
             "js/upload.js",
             "js/background.js",
             "js/backgroundRequests.js"
@@ -37,6 +38,7 @@
             "js": [
                 "js/aws/aws-sdk-2.0.0.min.js",
                 "js/refs/getPagesSource.js",
+                "js/wasabi.js",
                 "js/upload.js",
                 "js/content_scripts.js"
             ],
