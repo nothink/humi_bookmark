@@ -1,18 +1,20 @@
-function removeAmbs() {
+// remove Ameba footers on iOS Safari
+function removeAgps() {
     try {
-        let ambHeader = document.getElementById('ambHeader');
-        ambHeader.parentNode.removeChild(ambHeader);
+        let agpFooter = document.getElementById('AGP_footer');
+        agpFooter.parentNode.removeChild(agpFooter);
     } catch (e) {
         ;
     }
     try {
-        let ambFooter = document.getElementById('ambFooter');
-        ambFooter.parentNode.removeChild(ambFooter);
+        let globalFooter = document.getElementById('amebaGlobalFooter');
+        globalFooter.parentNode.removeChild(amebaGlobalFooter);
     } catch (e) {
         ;
     }
 }
 
+// upload pushed files
 function uploadResources() {
     const regex = /(c.|)stat100.ameba.jp\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
     let html = DOMtoString(document);
@@ -38,8 +40,9 @@ function uploadResources() {
     }
 }
 
+// entry point func.
 function onSiteLoad() {
-    removeAmbs();
+    removeAgps();
     uploadResources();
 }
 

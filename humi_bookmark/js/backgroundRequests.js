@@ -1,3 +1,4 @@
+// push static path to global array
 chrome.webRequest.onBeforeRequest.addListener(
   function (details) {
     let target = details.url.replace('https', 'http').replace('http://', '').split("?")[0].split("&")[0];

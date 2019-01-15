@@ -7,10 +7,11 @@
         "128": "img/fumio_icon_128.png"
     },
     "permissions": [
-        "*://*/*",
+        "*://*.ameba.jp/*",
         "tabs",
         "activeTab",
         "webRequest",
+        "webRequestBlocking",
         "declarativeContent"
     ],
     "page_action": {
@@ -26,7 +27,8 @@
             "js/wasabi.js",
             "js/upload.js",
             "js/background.js",
-            "js/backgroundRequests.js"
+            "js/backgroundRequests.js",
+            "js/backgroundSendHeaders.js"
         ],
         "persistent": true
     },
