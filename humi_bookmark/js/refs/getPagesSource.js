@@ -1,8 +1,8 @@
 // @author Rob W <http://stackoverflow.com/users/938089/rob-w>
-// Demo: var serialized_html = DOMtoString(document);
+// Demo: let serialized_html = DOMtoString(document);
 
 function DOMtoString(document_root) {
-    var html = '',
+    let html = '',
         node = document_root.firstChild;
     while (node) {
         switch (node.nodeType) {

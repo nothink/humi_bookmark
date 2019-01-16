@@ -11,9 +11,10 @@ function removeArrayDuplicates(array) {
     });
 }
 
+// upload URL arrays to wasabi storage (type: text/plain)
 function upload(array) {
     if (array.length > 0) {
-        var sts = new AWS.STS( {endpoint: wasabi.stsEndpoint });
+        let sts = new AWS.STS( {endpoint: wasabi.stsEndpoint });
         sts.assumeRole({
             RoleArn: wasabi.stsRoleArn,
             RoleSessionName: 'humi_bookmark',
@@ -24,7 +25,7 @@ function upload(array) {
                 console.error(err, err.stack);
             } else {
                 // remove dups
-                var uploads = removeArrayDuplicates(array).sort();
+                let uploads = removeArrayDuplicates(array).sort();
 
                 // set access keys and region
                 AWS.config.update({
@@ -34,7 +35,7 @@ function upload(array) {
                     region: wasabi.region
                 });
 
-                var s3 = new AWS.S3({
+                let s3 = new AWS.S3({
                     endpoint: new AWS.Endpoint(wasabi.endpoint),
                     params: { Bucket: 'humi-bookmark' }
                 });

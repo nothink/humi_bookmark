@@ -18,12 +18,12 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-// storage for dumping target paths.
+// global storage for dumping target paths.
 var files = [];
 
 // set interval
-var intervalId = setInterval(() => {
-    var targets = files.concat();
+let intervalId = setInterval(() => {
+    let targets = files.concat();
     files = [];
     if (targets.length > 0) {
         upload(targets);
