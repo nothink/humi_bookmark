@@ -12,15 +12,30 @@
         "activeTab",
         "webRequest",
         "webRequestBlocking",
-        "declarativeContent"
+        "declarativeContent",
+        "storage",
+        "fileSystem"
     ],
     "page_action": {
         "default_icon": {
             "19": "img/fumio_icon_19.png",
             "38": "img/fumio_icon_38.png"
         },
-        "default_title": "@humi_bookmark"
+        "default_title": "@humi_bookmark",
+        "default_popup": "html/popup.html"
     },
+    "event_rules": [{
+        "event": "declarativeContent.onPageChanged",
+        "actions": [{
+            "type": "declarativeContent.ShowPageAction"
+        }],
+        "conditions": [{
+            "type": "declarativeContent.PageStateMatcher",
+            "pageUrl": {
+                "urlMatches": "(http|https)\\:\\/\\/(vcard|\\.*stat100)\\.ameba\\.jp.*"
+            }
+        }]
+    }],
     "background": {
         "scripts": [
             "js/aws/aws-sdk-2.0.0.min.js",

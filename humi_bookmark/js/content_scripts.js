@@ -40,10 +40,24 @@ function uploadResources() {
     }
 }
 
+function showDialogBox() {
+    const div = document.createElement('div');
+    div.id = 'hoge';
+    div.style.position = 'fixed';
+    div.style.top = '2px';
+    div.style.left = '2px';
+    div.style.width = '16px';
+    div.style.height = '16px';
+    div.style.backgroundColor = 'green';
+    document.body.appendChild(div);
+}
+
 // entry point func.
 function onSiteLoad() {
     removeAgps();
     uploadResources();
+
+    showDialogBox();
 }
 
 onSiteLoad();
