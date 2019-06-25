@@ -11,6 +11,11 @@ function removeArrayDuplicates(array) {
     });
 }
 
+// remove double slash path to single slash
+function removeDoubleSlash(string) {
+    return string.replace('//', '/');
+}
+
 // upload URL arrays to wasabi storage (type: text/plain)
 function upload(array) {
     if (array.length > 0) {
@@ -26,6 +31,7 @@ function upload(array) {
             } else {
                 // remove dups
                 let uploads = removeArrayDuplicates(array).sort();
+                uploads = uploads.map(removeDoubleSlash);
 
                 // set access keys and region
                 AWS.config.update({
@@ -53,6 +59,17 @@ function upload(array) {
                         return uploads;
                     }
                 });
+
+                fetch('https://yurararan.nothink.jp/api/v0/resources', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        'urls': uploads,
+                    }),
+                }).catch(console.error);
             }
         });
     }

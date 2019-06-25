@@ -13,8 +13,7 @@
         "webRequest",
         "webRequestBlocking",
         "declarativeContent",
-        "storage",
-        "fileSystem"
+        "storage"
     ],
     "page_action": {
         "default_icon": {
@@ -62,5 +61,6 @@
             "run_at": "document_idle",
             "all_frames": true
         }
-    ]
+    ],
+    "content_security_policy": "script-src 'self'; object-src 'self' https://c.stat100.ameba.jp https://stat100.ameba.jp"
 }
