@@ -16,7 +16,7 @@ function removeAgps() {
 
 // upload pushed files
 function uploadResources() {
-    const regex = /(c.|)stat100.ameba.jp\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
+    const regex = /((c.|)stat100.ameba.jp)|([a-z0-9]*\.cloudfront\.net)\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
     let html = DOMtoString(document);
     if (html) {
         // replace all '\/' to '/'

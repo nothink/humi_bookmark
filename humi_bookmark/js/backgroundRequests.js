@@ -8,6 +8,9 @@ chrome.webRequest.onBeforeRequest.addListener(
         backgroundPage.files.push(target);
     });
   },
-  {urls: ['*://*.ameba.jp/vcard/*']},
+  {urls: [
+    '*://*.ameba.jp/vcard/*',
+    '*://*.cloudfront.net/vcard/*',
+  ]},
   []
 );

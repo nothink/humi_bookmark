@@ -10,7 +10,10 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
         return {requestHeaders: headers};
     },
     {
-        urls: ['*://vcard.ameba.jp/*'],
+        urls: [
+            '*://vcard.ameba.jp/*',
+            '*://*.cloudfront.net/vcard/*',
+        ],
         types: [
             "csp_report",
             "font",
