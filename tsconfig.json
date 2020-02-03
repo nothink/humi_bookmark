@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "module": "commonjs",
     "target": "es6",
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "rootDir": "src",
     "outDir": "dist/js",
@@ -16,10 +16,15 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true,
+    "noEmitOnError": true,
     "typeRoots": ["node_modules/@types"]
   },
   "formatCodeOptions": {
     "indentSize": 2
   },
-  "include": ["src/*.ts", "src/**/*.ts", "test/*.ts", "test/**/*.ts"]
+  "include": ["src/*.ts", "src/**/*.ts", "test/*.ts", "test/**/*.ts"],
+  "typedocOptions": {
+    "mode": "modules",
+    "out": "docs"
+  }
 }

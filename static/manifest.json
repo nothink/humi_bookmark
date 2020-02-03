@@ -1,21 +1,72 @@
 {
   "manifest_version": 2,
-  "name": "sample",
-  "version": "1.0",
 
-  "content_scripts": [
+  "name": "@humi_bookmark",
+  "description": "Fumio Murakami",
+  "version": "0.0.2",
+  "minimum_chrome_version": "69",
+
+  "icons": {
+    "128": "img/icon_128.png"
+  },
+
+  "permissions": [
+    "*://*.ameba.jp/*",
+    "*://*.cloudfront.net/*",
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeContent",
+    "storage",
+    "alarms"
+  ],
+
+  "page_action": {
+    "default_title": "@humi_bookmark",
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "128": "img/icon_128.png"
+    }
+  },
+
+  "event_rules": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "event": "declarativeContent.onPageChanged",
+      "actions": [
+        {
+          "type": "declarativeContent.ShowPageAction"
+        }
+      ],
+      "conditions": [
+        {
+          "type": "declarativeContent.PageStateMatcher",
+          "pageUrl": {
+            "urlMatches": "(http|https)\\:\\/\\/((vcard|\\.*stat100)\\.ameba\\.jp|.*\\.cloudfront\\.net).*"
+          }
+        }
+      ]
     }
   ],
 
-  "browser_action": {
-    "default_icon": {
-      "16": "icon.png"
-    },
-    "default_popup": "popup.html"
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
   },
 
-  "permissions": ["tabs"]
+  "content_scripts": [
+    {
+      "matches": [
+        "https://vcard.ameba.jp/*",
+        "https://*.ameba.jp/vcard/*",
+        "https://*.cloudfront.net/vcard/*"
+      ],
+      "js": ["js/content.js", "js/pace.min.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+
+  "options_page": "html/options.html"
 }

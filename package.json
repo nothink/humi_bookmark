@@ -8,7 +8,8 @@
     "watch": "webpack --config webpack/webpack.dev.js --watch",
     "lint": "eslint --fix src/*.ts src/**/*.ts",
     "test": "npx jest",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "doc": "typedoc --out doc src"
   },
   "author": "nothink",
   "license": "MIT",
@@ -26,6 +27,7 @@
     "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
+    "typedoc": "^0.16.7",
     "typescript": "^3.7.3",
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",

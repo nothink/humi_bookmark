@@ -10,7 +10,7 @@ module.exports = {
     popup: path.join(__dirname, srcDir + "popup.ts"),
     options: path.join(__dirname, srcDir + "options.ts"),
     background: path.join(__dirname, srcDir + "background.ts"),
-    content_script: path.join(__dirname, srcDir + "content_script.ts")
+    content: path.join(__dirname, srcDir + "content.ts")
   },
   output: {
     path: path.join(__dirname, "../dist/js"),
@@ -37,6 +37,6 @@ module.exports = {
   plugins: [
     // exclude locale files in moment
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new CopyPlugin([{ from: ".", to: "../" }], { context: "public" })
+    new CopyPlugin([{ from: ".", to: "../" }], { context: "static" })
   ]
 };
