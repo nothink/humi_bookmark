@@ -4,7 +4,7 @@
   "name": "@humi_bookmark",
   "description": "Fumio Murakami",
   "version": "0.0.2",
-  "minimum_chrome_version": "69",
+  "minimum_chrome_version": "79",
 
   "icons": {
     "128": "img/icon_128.png"
@@ -14,7 +14,6 @@
     "*://*.ameba.jp/*",
     "*://*.cloudfront.net/*",
     "tabs",
-    "activeTab",
     "webRequest",
     "webRequestBlocking",
     "declarativeContent",
@@ -56,17 +55,15 @@
 
   "content_scripts": [
     {
-      "matches": [
-        "https://vcard.ameba.jp/*",
-        "https://*.ameba.jp/vcard/*",
-        "https://*.cloudfront.net/vcard/*"
-      ],
-      "js": ["js/content.js", "js/pace.min.js"],
-      "run_at": "document_idle",
+      "matches": ["https://vcard.ameba.jp/*"],
+      "js": ["js/content.js"],
+      "web_accessible_resources": ["js/content.js"],
+      "run_at": "document_end",
       "all_frames": true
     }
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": ["js/injected.js"],
 
   "options_page": "html/options.html"
 }
