@@ -3,9 +3,9 @@
   "version": "0.0.2",
   "description": "",
   "scripts": {
-    "build": "webpack --config webpack/webpack.prod.js",
-    "dev": "webpack --config webpack/webpack.dev.js",
-    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
+    "dev": "rimraf dist && webpack --config webpack/webpack.dev.js",
+    "watch": "rimraf dist && webpack --config webpack/webpack.dev.js --watch",
     "lint": "eslint --fix src/*.ts src/**/*.ts",
     "test": "npx jest",
     "clean": "rimraf dist",
