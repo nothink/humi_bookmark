@@ -1,28 +1,29 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "commonjs",
     "target": "es6",
-    "sourceMap": false,
-    "strict": true,
+    "module": "commonjs",
+    "sourceMap": true,
     "rootDir": "src",
     "outDir": "dist/js",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true,
-    "removeComments": true,
+    "removeComments": false,
+
+    "strict": true,
     "noImplicitAny": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
+
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "jsx": "react",
+    "lib": ["es2015", "dom"],
+
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "noEmitOnError": true,
-    "typeRoots": ["node_modules/@types"]
+
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
   },
-  "formatCodeOptions": {
-    "indentSize": 2
-  },
-  "include": ["src/*.ts", "src/**/*.ts", "test/*.ts", "test/**/*.ts"],
+  "exclude": [
+    "node_modules"
+  ],
   "typedocOptions": {
     "mode": "modules",
     "out": "docs"

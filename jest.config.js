@@ -1,10 +1,8 @@
 module.exports = {
-  roots: ["<rootDir>/src"],
-  testMatch: [
-    "**/__tests__/**/*.+(ts|tsx|js)",
-    "**/?(*.)+(spec|test).+(ts|tsx|js)"
-  ],
+  roots: ['<rootDir>/src'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   transform: {
-    "^.+\\.ts$": "ts-jest"
-  }
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  setupFiles: ['jest-webextension-mock'],
 };

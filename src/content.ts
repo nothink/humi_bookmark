@@ -105,6 +105,10 @@ const pushContentUrl = (url: string): void => {
   chrome.runtime.sendMessage({ url: url });
 };
 
+chrome.runtime.connect().onDisconnect.addListener(port => {
+  console.log(port);
+});
+
 // Push file keys
 /**
  * 既存のDOMを再構築して、その中からURL文字列を探してpushする
@@ -112,12 +116,11 @@ const pushContentUrl = (url: string): void => {
 const pushResources = (node: Node): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
-      const regex = /((c.|)stat100.ameba.jp)|([a-z0-9]*\.cloudfront\.net)\/vcard\/[-a-zA-Z0-9/._+]*\.(?!build)[a-zA-Z0-9]+/gm;
+      const regex = /https?:\/\/[a-z0-9]*\.cloudfront\.net\/vcard\/[0-9a-zA-Z./+\-_]*\.(?!build)[a-zA-Z0-9]+/gm;
       let html = domToString(node);
       if (html) {
         // replace all '\/' to '/'
         html = html.replace(/\\\//g, '/');
-        const urls: string[] = [];
         let m;
         while ((m = regex.exec(html)) !== null) {
           // This is necessary to avoid infinite loops with zero-width matches
@@ -126,9 +129,7 @@ const pushResources = (node: Node): Promise<void> => {
           }
           // The result can be accessed through the `m`-variable.
           pushContentUrl(m[0]);
-          urls.push(m[0]);
         }
-        console.log(urls);
       }
       resolve();
     } catch (e) {
@@ -146,7 +147,6 @@ function observeResources(node: Node): Promise<void> {
     try {
       const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-          console.log(mutation.type);
           pushResources(mutation.target);
         });
       });
@@ -167,8 +167,7 @@ function observeResources(node: Node): Promise<void> {
 /**
  * DOMがロードされた時に呼ばれるエントリーポイント
  */
-function onDomLoad(): void {
-  // ここでIOを握らないように、Promiseは投げっぱなし
+async function onDomLoad(): Promise<void> {
   removeAmbs();
   removeAgps();
 

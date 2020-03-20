@@ -7,6 +7,9 @@ const DEFAULT_IOS_USER_AGENT =
 /** alarmの名前 */
 const PUT_ALARM_KEY = 'putResource';
 
+// パケットを監視する関係で常に起動してるので、background常駐にする
+let urls: string[] = [];
+
 // ------------------------- functions -------------------------
 /**
  * setIosUserAgent : UAの値をiOS Safariに変更する
@@ -52,51 +55,17 @@ const updateUserAgent = (
 };
 
 /**
- * local storageからstring[] の値のみをPromise的に取得する
- * @param key local storage のkey
- */
-const getStorage = (key: string): Promise<string[]> => {
-  return new Promise(resolve => {
-    chrome.storage.local.get(key, value => {
-      resolve(value[key] as string[]);
-    });
-  });
-};
-
-/**
- * local storageにstring[] の値をPromise的に取得する
- * @param key local storage のkey
- * @param value setするstring[]
- */
-const setStorage = (key: string, value: string[]): Promise<void> => {
-  return new Promise(resolve => {
-    chrome.storage.local.set({ key, value }, () => resolve());
-  });
-};
-
-/**
  * pushUrl: URLをローカルストレージにpushする
  * @param url string URL文字列
  */
-const pushUrl = (url: string): void => {
+const pushUrl = (src: string): void => {
   // リクエスト毎にそのURLのスキーマやパラメータ以外の
-  // パス部分をスタックに詰め込む
-  const pathKey = url
-    .replace('https://', 'http://')
-    .replace('http://', '')
-    .replace('//', '/')
-    .split('?')[0]
-    .split('&')[0];
-  // chrome.storage はコールバック処理なのでPromiseで実施
-  // TODO: ロックされていないので一つしか保持できてない
-  getStorage('urls').then(value => {
-    const current = value ? value : [];
-    if (!current.includes(pathKey)) {
-      current.push(pathKey); // 必ず後ろから追加すること
-      console.log(current);
-      return setStorage('urls', current);
-    }
-  });
+  // URL部分をスタックに詰め込む
+  const url = new URL(src);
+  const key = url.origin + url.pathname;
+  if (!urls.includes(key)) {
+    urls.push(key);
+  }
 };
 
 // ------------------------- runtime.onInstalled -------------------------
@@ -109,18 +78,17 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ iosUserAgent: true });
 });
 
-// // ------------------------- onStartup -------------------------
-// chrome.runtime.onStartup.addListener(() => {
-//   // add Listener
-//   chrome.storage.onChanged.addListener(updateUserAgent);
-//   // 一回叩く？
-// });
+// ------------------------- onStartup -------------------------
+chrome.runtime.onStartup.addListener(() => {
+  // add Listener
+  // TODO: Listenerがダブってないことを確認すること
+  chrome.storage.onChanged.addListener(updateUserAgent);
+});
 
 // ------------------------- runtime.onMessage -------------------------
 chrome.runtime.onMessage.addListener(message => {
   // 今回はmessage以外いらない
   if (message && message.url && typeof message.url === 'string') {
-    console.log(message.url as string);
     // message に url キーが含まれる場合はスタックに詰め込む
     pushUrl(message.url as string);
   }
@@ -128,33 +96,21 @@ chrome.runtime.onMessage.addListener(message => {
 
 // ------------------------- alarms.onAlarm -------------------------
 chrome.alarms.onAlarm.addListener(alarm => {
-  if (alarm.name === PUT_ALARM_KEY) {
-    // get -> put
-    chrome.storage.local.get('urls', value => {
-      if (!value.urls) {
-        return;
-      }
-      const fetchTarget = value.urls as string[];
-      // put array to api.
-      fetch('https://yurararan.nothink.jp/api/v0/resources', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          urls: fetchTarget,
-        }),
-      })
-        .then(() => {
-          chrome.storage.local.get('urls', value => {
-            // 現在の値を更新
-            const remains = (value.urls as string[]).slice(fetchTarget.length);
-            chrome.storage.local.set({ urls: remains });
-          });
-        })
-        .catch(console.error);
-    });
+  if (alarm.name === PUT_ALARM_KEY && urls.length > 0) {
+    const target = urls;
+    urls = [];
+    console.log(target);
+    // put array to api.
+    fetch('https://masamai.nothink.jp/api/v1/resources', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        urls: target,
+      }),
+    }).catch(console.error);
   }
 });
 
