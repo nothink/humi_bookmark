@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
-    "dev": "rimraf dist && webpack --config webpack/webpack.dev.js",
+    "build:dev": "rimraf dist && webpack --config webpack/webpack.dev.js",
     "watch": "rimraf dist && webpack --config webpack/webpack.dev.js --watch",
     "lint": "eslint --fix src/*.ts src/**/*.ts",
     "test": "npx jest",

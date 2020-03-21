@@ -9,6 +9,7 @@ const PUT_ALARM_KEY = 'putResource';
 
 // パケットを監視する関係で常に起動してるので、background常駐にする
 let urls: string[] = [];
+let ends: string[] = [];
 
 // ------------------------- functions -------------------------
 /**
@@ -63,9 +64,27 @@ const pushUrl = (src: string): void => {
   // URL部分をスタックに詰め込む
   const url = new URL(src);
   const key = url.origin + url.pathname;
-  if (!urls.includes(key)) {
+  if (!urls.includes(key) && !ends.includes(key)) {
     urls.push(key);
   }
+};
+
+const sendCurrent = (): void => {
+  const target = urls;
+  urls = [];
+  console.log(target);
+  ends = ends.concat(target);
+  // put array to api.
+  fetch('https://masamai.nothink.jp/api/v1/resources', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      urls: target,
+    }),
+  }).catch(console.error);
 };
 
 // ------------------------- runtime.onInstalled -------------------------
@@ -78,11 +97,17 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ iosUserAgent: true });
 });
 
-// ------------------------- onStartup -------------------------
+// ------------------------- runtime.onStartup -------------------------
 chrome.runtime.onStartup.addListener(() => {
   // add Listener
   // TODO: Listenerがダブってないことを確認すること
   chrome.storage.onChanged.addListener(updateUserAgent);
+});
+
+// ------------------------- runtime.onSuspend -------------------------
+chrome.runtime.onSuspend.addListener(() => {
+  // 最後に全部送って終了
+  sendCurrent();
 });
 
 // ------------------------- runtime.onMessage -------------------------
@@ -97,20 +122,7 @@ chrome.runtime.onMessage.addListener(message => {
 // ------------------------- alarms.onAlarm -------------------------
 chrome.alarms.onAlarm.addListener(alarm => {
   if (alarm.name === PUT_ALARM_KEY && urls.length > 0) {
-    const target = urls;
-    urls = [];
-    console.log(target);
-    // put array to api.
-    fetch('https://masamai.nothink.jp/api/v1/resources', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        urls: target,
-      }),
-    }).catch(console.error);
+    sendCurrent();
   }
 });
 
