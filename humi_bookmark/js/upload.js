@@ -7,7 +7,8 @@ function removeArrayDuplicates(array) {
 
 // remove double slash path to single slash
 function removeDoubleSlash(string) {
-    return string.replace('//', '/');
+    return 'https://' + string.replace('//', '/');
+    // return string.replace('//', '/');
 }
 
 // upload URL arrays to wasabi storage (type: text/plain)
@@ -18,8 +19,8 @@ function upload(array) {
         uploads = uploads.map(removeDoubleSlash);
 
         // put array to api.
-        fetch('https://yurararan.nothink.jp/api/v0/resources', {
-            method: 'POST',
+        fetch('https://masamai.nothink.jp/api/v1/resources', {
+                method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
