@@ -29,5 +29,21 @@ function upload(array) {
                 'urls': uploads,
             }),
         }).catch(console.error);
+
+        const upload_items = []
+        uploads.forEach(element => {
+            const obj = {};
+            obj['source'] = element;
+            upload_items.push(obj)
+        });
+        fetch('https://api.seio.club/api/resources/', {
+                method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(upload_items),
+        }).catch(console.error);
+
     }
 }
