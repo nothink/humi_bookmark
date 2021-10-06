@@ -9,6 +9,7 @@
   "permissions": [
     "*://*.ameba.jp/*",
     "*://*.cloudfront.net/*",
+    "*://*.seio.club/*",
     "tabs",
     "activeTab",
     "webRequest",
