@@ -19,30 +19,14 @@ function upload(array) {
         uploads = uploads.map(removeDoubleSlash);
 
         // put array to api.
-        fetch('https://masamai.nothink.jp/api/v1/resources', {
-                method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'urls': uploads,
-            }),
-        }).catch(console.error);
 
-        const upload_items = []
-        uploads.forEach(element => {
-            const obj = {};
-            obj['source'] = element;
-            upload_items.push(obj)
-        });
-        fetch('https://api.seio.club/api/resources/', {
+        fetch('https://api.seio.club/api/resource-queues/', {
                 method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(upload_items),
+            body: JSON.stringify(uploads),
         }).catch(console.error);
 
     }
