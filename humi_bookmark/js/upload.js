@@ -21,7 +21,7 @@ function upload(array) {
         // put array to api.
 
         fetch('https://api.seio.club/api/resource-queues/', {
-                method: 'POST',
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
