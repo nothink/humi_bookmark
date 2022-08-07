@@ -45,8 +45,8 @@ function showDialogBox() {
     div.id = 'hoge';
     div.style.position = 'fixed';
     div.style.top = '2px';
-    div.style.left = '2px';
-    div.style.width = '16px';
+    div.style.left = '1px';
+    div.style.width = '7px';
     div.style.height = '16px';
     div.style.backgroundColor = 'green';
     document.body.appendChild(div);
