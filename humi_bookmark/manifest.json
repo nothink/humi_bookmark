@@ -10,6 +10,7 @@
     "*://*.ameba.jp/*",
     "*://*.cloudfront.net/*",
     "*://*.seio.club/*",
+    "*://*.run.app/*",
     "tabs",
     "activeTab",
     "webRequest",

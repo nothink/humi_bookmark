@@ -20,7 +20,9 @@ function upload(array) {
 
         // put array to api.
 
-        fetch('https://api.seio.club/api/resource-queues/', {
+        // let endpoint = 'https://api.seio.club/api/resource-queues/';
+        let endpoint = 'https://momoichigo-2jwvi5kfma-an.a.run.app/api/resource-queues/';
+        fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
