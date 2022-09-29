@@ -30,6 +30,15 @@ function upload(array) {
             },
             body: JSON.stringify(uploads),
         }).catch(console.error);
-
+        let endpoint2 = 'https://asia-northeast1-seioclub.cloudfunctions.net/dqx9mbrpz1jhx';
+        let uploads2 = {"urls": uploads};
+        fetch(endpoint2, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(uploads2),
+        }).catch(console.error);
     }
 }

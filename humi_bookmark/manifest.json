@@ -11,6 +11,7 @@
     "*://*.cloudfront.net/*",
     "*://*.seio.club/*",
     "*://*.run.app/*",
+    "*//asia-northeast1-seioclub.cloudfunctions.net/*",
     "tabs",
     "activeTab",
     "webRequest",
