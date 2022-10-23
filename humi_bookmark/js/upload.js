@@ -1,6 +1,6 @@
 // remove array's duplicates
 function removeArrayDuplicates(array) {
-    return array.filter(function(value, index, self) {
+    return array.filter(function (value, index, self) {
         return self.indexOf(value) === index;
     });
 }
@@ -21,17 +21,17 @@ function upload(array) {
         // put array to api.
 
         // let endpoint = 'https://api.seio.club/api/resource-queues/';
-        let endpoint = 'https://momoichigo-2jwvi5kfma-an.a.run.app/api/resource-queues/';
-        fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(uploads),
-        }).catch(console.error);
+        // let endpoint = 'https://momoichigo-2jwvi5kfma-an.a.run.app/api/resource-queues/';
+        // fetch(endpoint, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(uploads),
+        // }).catch(console.error);
         let endpoint2 = 'https://asia-northeast1-seioclub.cloudfunctions.net/dqx9mbrpz1jhx';
-        let uploads2 = {"urls": uploads};
+        let uploads2 = { "urls": uploads };
         fetch(endpoint2, {
             method: 'POST',
             headers: {
