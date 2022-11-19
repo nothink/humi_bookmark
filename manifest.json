@@ -1,8 +1,23 @@
 {
   "manifest_version": 3,
   "name": "CRXJS React Vite Example",
-  "version": "1.0.0",
+  "version": "0.0.2",
+  "description": "descriptions example",
+  "icons": {
+    "128": "icon.png"
+  },
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/content_scripts/index.ts"
+      ],
+      "matches": [
+        "*://vcard.ameba.jp/*",
+        "*://*.cloudfront.net/*"
+      ]
+    }
+  ]
 }

@@ -39,3 +39,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  text-align: center;
+  min-width: 100px;
+}
