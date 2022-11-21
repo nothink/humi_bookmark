@@ -1,6 +1,6 @@
 export { }
 
-const entry = () => {
+const updateContents = (): void => {
   const div = document.createElement('div')
   div.id = 'hoge'
   div.style.position = 'fixed'
@@ -12,4 +12,4 @@ const entry = () => {
   document.body.appendChild(div)
 }
 
-entry()
+updateContents()

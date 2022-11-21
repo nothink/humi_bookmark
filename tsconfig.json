@@ -21,7 +21,10 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "./src",
+    "./*.cjs",
+    "./.*.cjs",
+    "./vite.config.ts"
   ],
   "references": [
     {
