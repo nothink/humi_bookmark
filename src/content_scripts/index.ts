@@ -1,4 +1,4 @@
-export { }
+export {}
 
 const updateContents = (): void => {
   const div = document.createElement('div')

@@ -11,13 +11,8 @@
   },
   "content_scripts": [
     {
-      "js": [
-        "src/content_scripts/index.ts"
-      ],
-      "matches": [
-        "*://vcard.ameba.jp/*",
-        "*://*.cloudfront.net/*"
-      ]
+      "js": ["src/content_scripts/index.ts"],
+      "matches": ["*://vcard.ameba.jp/*", "*://*.cloudfront.net/*"]
     }
   ]
 }

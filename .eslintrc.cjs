@@ -1,28 +1,24 @@
-const { readGitignoreFiles } = require("eslint-gitignore")
+const { readGitignoreFiles } = require('eslint-gitignore')
 
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'standard-with-typescript',
-    'prettier'
+    'prettier',
   ],
-  overrides: [
-  ],
+  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json']
+    project: ['./tsconfig.json'],
   },
-  plugins: [
-    'react', '@typescript-eslint'
-  ],
-  rules: {
-  },
-  ignorePatterns: readGitignoreFiles({ cwd: __dirname })
+  plugins: ['react', '@typescript-eslint'],
+  rules: {},
+  ignorePatterns: readGitignoreFiles({ cwd: __dirname }).concat(['_old']),
 }
