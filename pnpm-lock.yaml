@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@crxjs/vite-plugin': ^1.0.14
-  '@types/chrome': ^0.0.202
+  '@types/chrome': ^0.0.203
   '@types/react': ^18.0.25
   '@types/react-dom': ^18.0.9
   '@typescript-eslint/eslint-plugin': ^5.44.0
@@ -33,7 +33,7 @@ dependencies:
 
 devDependencies:
   '@crxjs/vite-plugin': 1.0.14_vite@3.2.4
-  '@types/chrome': 0.0.202
+  '@types/chrome': 0.0.203
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
   '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
@@ -540,8 +540,8 @@ packages:
       - zenObservable
     dev: true
 
-  /@types/chrome/0.0.202:
-    resolution: {integrity: sha512-Oc4daL9sFS+9MToVZPLMBxR7PxsEdod0b8wOY11lRr06GJp43MORvHeDyMD8QzeRGT6HI13oaYAe2PBgvALc4w==}
+  /@types/chrome/0.0.203:
+    resolution: {integrity: sha512-JlQNebwpBETVc8U1Rr2inDFuOTtn0lahRAhnddx1dd0S5RrLAFJEEsyIu7AXI14mkCgSunksnuLGioH8kvBqRA==}
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.9
