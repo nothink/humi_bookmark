@@ -5,7 +5,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling
 
-export function DOMtoString(documentRoot: Node): string {
+export function docToString(documentRoot: Node): string {
   let html: string = ''
   let node: Node | null = documentRoot.firstChild
   while (node != null) {
