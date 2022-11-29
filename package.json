@@ -21,13 +21,13 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "2.0.0-beta.6",
+    "@crxjs/vite-plugin": "2.0.0-beta.7",
     "@types/chrome": "^0.0.203",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@types/web": "^0.0.81",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.42.1",

@@ -1,9 +1,9 @@
-export {}
+// import { appendRoot } from './append'
 
 const updateContents = (): void => {
-  const div = document.createElement('div')
-  div.id = 'cs-root'
-  document.body.append(div)
+  // appendRoot()
 }
 
 updateContents()
+
+export {}
