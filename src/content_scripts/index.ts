@@ -1,7 +1,7 @@
-// import { appendRoot } from './append'
+import { appendRoot } from './append'
 
 const updateContents = (): void => {
-  // appendRoot()
+  appendRoot()
 }
 
 updateContents()
