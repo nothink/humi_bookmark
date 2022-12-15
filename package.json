@@ -29,7 +29,7 @@
     "@types/web": "^0.0.84",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "@vitejs/plugin-react": "^2.2.0",
+    "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.43.2",
     "eslint": "^8.29.0",
