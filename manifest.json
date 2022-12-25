@@ -22,7 +22,8 @@
   "permissions": [
     "webRequest",
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess"
   ],
   "host_permissions": ["https://vcard.ameba.jp/*"]
 }
