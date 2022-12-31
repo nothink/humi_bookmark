@@ -18,7 +18,7 @@ const action: chrome.declarativeNetRequest.RuleAction = {
   ],
 }
 
-const one: chrome.declarativeNetRequest.Rule = {
+export const one: chrome.declarativeNetRequest.Rule = {
   id: 1,
   priority: 1,
   action,
@@ -26,7 +26,5 @@ const one: chrome.declarativeNetRequest.Rule = {
     ...condition,
   },
 }
-
-console.log(one)
 
 export const declareHeader = (): void => {}

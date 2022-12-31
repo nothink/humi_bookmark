@@ -9,21 +9,38 @@
   "action": {
     "default_popup": "index.html"
   },
+  "background": {
+    "service_worker": "src/service_worker/index.ts",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "js": ["src/content_scripts/index.ts"],
       "matches": ["*://vcard.ameba.jp/*"]
     }
   ],
-  "background": {
-    "service_worker": "src/service_worker/index.ts",
-    "type": "module"
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      },
+      {
+        "id": "ruleset_2",
+        "enabled": false,
+        "path": "rules_2.json"
+      }
+    ]
   },
   "permissions": [
     "webRequest",
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback",
-    "declarativeNetRequestWithHostAccess"
+    "declarativeNetRequestFeedback"
   ],
-  "host_permissions": ["https://vcard.ameba.jp/*"]
+  "host_permissions": [
+    "*://vcard.ameba.jp/*",
+    "*://google.com/*",
+    "*://microsoft.com/*"
+  ]
 }
