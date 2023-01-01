@@ -1,18 +1,33 @@
 {
   "manifest_version": 3,
-  "name": "文緒ブックマークv002",
+  "name": "文緒ブックマーク v2",
   "version": "0.0.2",
   "description": "descriptions example",
   "icons": {
-    "128": "icon.png"
+    "128": "humio_128.png"
   },
   "action": {
     "default_popup": "index.html"
   },
+  "background": {
+    "service_worker": "src/service_worker/index.ts",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "js": ["src/content_scripts/index.ts"],
-      "matches": ["*://vcard.ameba.jp/*", "*://*.cloudfront.net/*"]
+      "matches": ["*://vcard.ameba.jp/*"]
     }
-  ]
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "chrome_pc",
+        "enabled": true,
+        "path": "rules/chrome_pc.json"
+      }
+    ]
+  },
+  "permissions": ["declarativeNetRequest", "declarativeNetRequestFeedback"],
+  "host_permissions": ["*://vcard.ameba.jp/*"]
 }
