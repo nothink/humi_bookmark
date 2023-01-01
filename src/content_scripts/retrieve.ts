@@ -1,6 +1,9 @@
 import { parseDoc } from '../lib/parse'
 import { upload } from '../lib/upload'
 
+/**
+ * retrieve strings with "vcard/"
+ */
 export const retrieveVcards = (): void => {
   const parsed = parseDoc(document)
   const regex = /vcard\/[-_.a-zA-Z0-9/+]*\.[a-zA-Z0-9]+/g

@@ -22,25 +22,12 @@
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "ruleset_1",
+        "id": "chrome_pc",
         "enabled": true,
-        "path": "rules_1.json"
-      },
-      {
-        "id": "ruleset_2",
-        "enabled": false,
-        "path": "rules_2.json"
+        "path": "rules/chrome_pc.json"
       }
     ]
   },
-  "permissions": [
-    "webRequest",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
-  ],
-  "host_permissions": [
-    "*://vcard.ameba.jp/*",
-    "*://google.com/*",
-    "*://microsoft.com/*"
-  ]
+  "permissions": ["declarativeNetRequest", "declarativeNetRequestFeedback"],
+  "host_permissions": ["*://vcard.ameba.jp/*"]
 }
