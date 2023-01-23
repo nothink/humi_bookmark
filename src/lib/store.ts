@@ -13,7 +13,7 @@ const bucket = getBucket<VcardStore>(BUCKET_KEY, 'local')
  * キューにvcardのキーを追加する
  * @param keys キューに追加したいstring[]
  */
-export const setQueue = async (keys: string[]): Promise<void> => {
+export const pushQueues = async (keys: string[]): Promise<void> => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
   console.log(`keys of input: ${keys.toString()}`)
