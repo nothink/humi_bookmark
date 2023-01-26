@@ -24,7 +24,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.11",
     "@extend-chrome/storage": "^1.5.0",
-    "@types/chrome": "^0.0.209",
+    "@types/chrome": "^0.0.210",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/web": "^0.0.89",
@@ -33,7 +33,7 @@
     "@vitejs/plugin-react": "^3.0.1",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-config-standard-with-typescript": "^31.0.0",
+    "eslint-config-standard-with-typescript": "^32.0.0",
     "eslint-gitignore": "^0.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",
@@ -44,7 +44,7 @@
     "prettier": "^2.8.3",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
-    "vitest": "^0.27.3"
+    "vitest": "^0.28.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,cjs}": "eslint --cache --fix",
