@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@crxjs/vite-plugin': 2.0.0-beta.11
+  '@crxjs/vite-plugin': 2.0.0-beta.15
   '@extend-chrome/storage': ^1.5.0
   '@types/chrome': ^0.0.210
   '@types/react': ^18.0.27
@@ -32,7 +32,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
-  '@crxjs/vite-plugin': 2.0.0-beta.11
+  '@crxjs/vite-plugin': 2.0.0-beta.15
   '@extend-chrome/storage': 1.5.0
   '@types/chrome': 0.0.210
   '@types/react': 18.0.27
@@ -285,8 +285,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@crxjs/vite-plugin/2.0.0-beta.11:
-    resolution: {integrity: sha512-KhWZhXJkle/Bip7Q1KaU8t8GKomHhOEn9joegcltYepsInv4FjZ+CPdMVZhFmCYKKCAn+wAL2IiNYW4QQnSHsA==}
+  /@crxjs/vite-plugin/2.0.0-beta.15:
+    resolution: {integrity: sha512-3lDltBqr41BZpJRidbXnKiWwvvfpb8CQ0SKEBW1XsnKTzP9ZcJnZuSoTizBxd6Hx2VPrGFooPjuh+ohQ3QIoHg==}
     dependencies:
       '@rollup/pluginutils': 4.2.1
       '@webcomponents/custom-elements': 1.5.1
