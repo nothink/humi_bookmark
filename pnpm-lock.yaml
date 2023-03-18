@@ -6,7 +6,7 @@ specifiers:
   '@types/chrome': ^0.0.210
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
-  '@types/web': ^0.0.89
+  '@types/web': ^0.0.99
   '@typescript-eslint/eslint-plugin': ^5.49.0
   '@typescript-eslint/parser': ^5.49.0
   '@vitejs/plugin-react': ^3.0.1
@@ -37,7 +37,7 @@ devDependencies:
   '@types/chrome': 0.0.210
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
-  '@types/web': 0.0.89
+  '@types/web': 0.0.99
   '@typescript-eslint/eslint-plugin': 5.49.0_iu322prlnwsygkcra5kbpy22si
   '@typescript-eslint/parser': 5.49.0_7uibuqfxkfaozanbtbziikiqje
   '@vitejs/plugin-react': 3.0.1_vite@4.0.4
@@ -685,8 +685,8 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
-  /@types/web/0.0.89:
-    resolution: {integrity: sha512-GmYzEKEi5I2aUVcGMcNDMLOZ3N5f6Vmaly9rr7ZL9b8zxc8KFZU5h2Wqzxgx6/ztj9+Eq2t4jDeWGW18N5UeOQ==}
+  /@types/web/0.0.99:
+    resolution: {integrity: sha512-xMz3tOvtkZzc7RpQrDNiLe5sfMmP+fz8bOxHIZ/U8qXyvzDX4L4Ss1HCjor/O9DSelba+1iXK1VM7lruX28hiQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.49.0_iu322prlnwsygkcra5kbpy22si:
