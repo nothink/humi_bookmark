@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
     'standard-with-typescript',
     'prettier',
   ],
@@ -21,5 +22,10 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {},
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   ignorePatterns: readGitignoreFiles({ cwd: __dirname }).concat(['_old']),
 }

@@ -1,26 +1,24 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import App from '../App'
-// import '../index.css'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import App from '../App'
 
 export const appendRoot = (): void => {
-  const root = document.createElement('div')
-  root.id = 'crx-root'
-  root.style.position = 'absolute'
+  const elem = document.createElement('div')
+  elem.id = 'crx-root'
+  elem.style.position = 'absolute'
 
-  root.style.position = 'fixed'
-  root.style.top = '20px'
-  root.style.left = '1px'
-  root.style.width = '7px'
-  root.style.height = '32px'
-  root.style.backgroundColor = 'red'
+  elem.style.position = 'fixed'
+  elem.style.top = '0px'
+  elem.style.left = '0px'
+  elem.style.width = '64px'
+  elem.style.height = '64px'
 
-  document.body.append(root)
+  document.body.append(elem)
+  const root2 = createRoot(elem)
 
-  // ReactDOM.render(
-  //   <React.StrictMode>
-  //     <App />
-  //   </React.StrictMode>,
-  //   root
-  // )
+  root2.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  )
 }
