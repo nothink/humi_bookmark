@@ -18,12 +18,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@extend-chrome/storage": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@chakra-ui/react": "^2.5.2",
     "@crxjs/vite-plugin": "2.0.0-beta.15",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@extend-chrome/storage": "^1.5.0",
     "@types/chrome": "^0.0.224",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -40,6 +43,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "framer-motion": "^10.8.4",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.6",

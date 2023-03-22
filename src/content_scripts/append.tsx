@@ -1,5 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import { ChakraProvider } from '@chakra-ui/react'
+
 import App from '../App'
 
 export const appendRoot = (): void => {
@@ -14,11 +16,13 @@ export const appendRoot = (): void => {
   elem.style.height = '64px'
 
   document.body.append(elem)
-  const root2 = createRoot(elem)
+  const root = createRoot(elem)
 
-  root2.render(
+  root.render(
     <React.StrictMode>
-      <App />
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
     </React.StrictMode>
   )
 }

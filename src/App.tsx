@@ -1,7 +1,9 @@
+import { Button } from '@chakra-ui/react'
+
 const App = (): JSX.Element => {
   return (
     <div className="App">
-      <button>ボタン</button>
+      <Button colorScheme="blue">ボタン</Button>
     </div>
   )
 }
