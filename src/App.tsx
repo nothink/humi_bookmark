@@ -1,9 +1,17 @@
-import { Button } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
+import { MdBookmarks } from 'react-icons/md'
 
 const App = (): JSX.Element => {
   return (
     <div className="App">
-      <Button colorScheme="blue">ボタン</Button>
+      <IconButton
+        variant="outline"
+        colorScheme="red"
+        aria-label="Bookmark"
+        size="sm"
+        fontSize="20px"
+        icon={<MdBookmarks />}
+      />
     </div>
   )
 }

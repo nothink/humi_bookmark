@@ -12,8 +12,8 @@ export const appendRoot = (): void => {
   elem.style.position = 'fixed'
   elem.style.top = '0px'
   elem.style.left = '0px'
-  elem.style.width = '64px'
-  elem.style.height = '64px'
+  elem.style.width = '24px'
+  elem.style.height = '24px'
 
   document.body.append(elem)
   const root = createRoot(elem)
