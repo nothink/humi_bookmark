@@ -1,5 +1,3 @@
-const { readGitignoreFiles } = require('eslint-gitignore')
-
 module.exports = {
   env: {
     browser: true,
@@ -34,5 +32,5 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: readGitignoreFiles({ cwd: __dirname }).concat(['_old']),
+  ignorePatterns: ['dist/', 'node_modules', '_old'],
 }

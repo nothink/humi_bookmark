@@ -7,9 +7,4 @@ import manifest from './src/manifest.config'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), crx({ manifest })],
-  server: {
-    watch: {
-      usePolling: true,
-    },
-  },
 })
