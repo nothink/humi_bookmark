@@ -25,8 +25,8 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.15",
     "@extend-chrome/storage": "^1.5.0",
-    "@types/chrome": "^0.0.224",
-    "@types/react": "^18.0.28",
+    "@types/chrome": "^0.0.225",
+    "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
     "@types/web": "^0.0.99",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
@@ -43,8 +43,8 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "^2.8.6",
-    "typescript": "^4.9.5",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.2",
     "vite": "^4.2.1"
   },
   "lint-staged": {
