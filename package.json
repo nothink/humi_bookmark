@@ -25,7 +25,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.15",
     "@extend-chrome/storage": "^1.5.0",
-    "@types/chrome": "^0.0.226",
+    "@types/chrome": "^0.0.227",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@types/web": "^0.0.99",
@@ -44,7 +44,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.3",
     "vite": "^4.2.1"
   },
   "lint-staged": {
