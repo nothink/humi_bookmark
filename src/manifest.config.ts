@@ -27,7 +27,13 @@ export default defineManifest(async (env) => ({
   content_scripts: [
     {
       matches: ['*://vcard.ameba.jp/*'],
-      js: ['src/content_scripts/index.ts'],
+      js: ['src/content_scripts/end.ts'],
+      run_at: 'document_end',
+    },
+    {
+      matches: ['*://vcard.ameba.jp/*'],
+      js: ['src/content_scripts/idle.ts'],
+      run_at: 'document_idle',
     },
   ],
   declarative_net_request: {

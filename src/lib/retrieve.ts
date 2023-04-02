@@ -1,5 +1,5 @@
-import { parseDoc } from '../lib/parse'
-import { upload } from '../lib/upload'
+import { parseDoc } from './parse'
+import { upload } from './upload'
 
 /**
  * retrieve strings with "vcard/"

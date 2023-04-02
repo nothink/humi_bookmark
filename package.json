@@ -26,7 +26,7 @@
     "@crxjs/vite-plugin": "2.0.0-beta.15",
     "@extend-chrome/storage": "^1.5.0",
     "@types/chrome": "^0.0.227",
-    "@types/react": "^18.0.31",
+    "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",
     "@types/web": "^0.0.99",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
