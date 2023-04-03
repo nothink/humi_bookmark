@@ -1,7 +1,7 @@
 import { MdBookmarks } from "react-icons/md";
 
 import { useDisclosure } from "@mantine/hooks";
-import { MantineProvider, ActionIcon, Drawer } from "@mantine/core";
+import { MantineProvider, ActionIcon, Drawer, Select } from "@mantine/core";
 
 const App = (): JSX.Element => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -9,7 +9,17 @@ const App = (): JSX.Element => {
   return (
     <div className="App">
       <MantineProvider withGlobalStyles withNormalizeCSS>
-        <Drawer opened={opened} onClose={close} title="Authentication">
+        <Drawer size="xs" opened={opened} onClose={close} title="ブクマく">
+          <Select
+            label="Your favorite framework/library"
+            placeholder="Pick one"
+            data={[
+              { value: "react", label: "React" },
+              { value: "ng", label: "Angular" },
+              { value: "svelte", label: "Svelte" },
+              { value: "vue", label: "Vue" },
+            ]}
+          />
           {/* Drawer content */}
         </Drawer>
         <ActionIcon
