@@ -22,7 +22,9 @@ export default defineManifest(async (env) => ({
   version_name: version,
   description: "GF(仮)の効率化拡張",
   icons: { 128: "humio_128.png" },
-  action: { default_popup: "index.html" },
+  action: {
+    default_title: "文緒ブックマーク v2",
+  },
   background: {
     service_worker: "src/service_worker/index.ts",
     type: "module",

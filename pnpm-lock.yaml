@@ -4,6 +4,9 @@ dependencies:
   '@emotion/react':
     specifier: ^11.10.6
     version: 11.10.6(@types/react@18.0.32)(react@18.2.0)
+  '@extend-chrome/storage':
+    specifier: ^1.5.0
+    version: 1.5.0
   '@mantine/core':
     specifier: ^6.0.5
     version: 6.0.5(@emotion/react@11.10.6)(@mantine/hooks@6.0.5)(@types/react@18.0.32)(react-dom@18.2.0)(react@18.2.0)
@@ -24,9 +27,6 @@ devDependencies:
   '@crxjs/vite-plugin':
     specifier: 2.0.0-beta.15
     version: 2.0.0-beta.15
-  '@extend-chrome/storage':
-    specifier: ^1.5.0
-    version: 1.5.0
   '@types/chrome':
     specifier: ^0.0.227
     version: 0.0.227
@@ -493,7 +493,7 @@ packages:
     dependencies:
       chrome-promise: 3.0.5
       rxjs: 7.8.0
-    dev: true
+    dev: false
 
   /@floating-ui/core@1.2.5:
     resolution: {integrity: sha512-qrcbyfnRVziRlB6IYwjCopYhO7Vud750JlJyuljruIXcPxr22y8zdckcJGsuOdnQ639uVD1tTXddrcH3t3QYIQ==}
@@ -1293,7 +1293,7 @@ packages:
 
   /chrome-promise@3.0.5:
     resolution: {integrity: sha512-ekIevrJOO5S6ezSzl5TdaLhlQkovY5nVaNSgA2XyhuNtlGniUvTbf7rzH95alh1OajArwoP2xVGYUJbpVLmZYA==}
-    dev: true
+    dev: false
 
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -3123,7 +3123,6 @@ packages:
     resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
     dependencies:
       tslib: 2.5.0
-    dev: true
 
   /safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
