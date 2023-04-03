@@ -1,13 +1,13 @@
 // remove array's duplicates
 function removeArrayDuplicates(array) {
   return array.filter(function (value, index, self) {
-    return self.indexOf(value) === index
-  })
+    return self.indexOf(value) === index;
+  });
 }
 
 // remove double slash path to single slash
 function removeDoubleSlash(string) {
-  return 'https://' + string.replace('//', '/')
+  return "https://" + string.replace("//", "/");
   // return string.replace('//', '/');
 }
 
@@ -15,8 +15,8 @@ function removeDoubleSlash(string) {
 function upload(array) {
   if (array.length > 0) {
     // remove dups
-    let uploads = removeArrayDuplicates(array).sort()
-    uploads = uploads.map(removeDoubleSlash)
+    let uploads = removeArrayDuplicates(array).sort();
+    uploads = uploads.map(removeDoubleSlash);
 
     // put array to api.
 
@@ -31,15 +31,15 @@ function upload(array) {
     //     body: JSON.stringify(uploads),
     // }).catch(console.error);
     let endpoint2 =
-      'https://asia-northeast1-seioclub.cloudfunctions.net/dqx9mbrpz1jhx'
-    let uploads2 = { urls: uploads }
+      "https://asia-northeast1-seioclub.cloudfunctions.net/dqx9mbrpz1jhx";
+    let uploads2 = { urls: uploads };
     fetch(endpoint2, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(uploads2),
-    }).catch(console.error)
+    }).catch(console.error);
   }
 }

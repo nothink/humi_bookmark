@@ -1,11 +1,11 @@
 // global storage for dumping target paths.
-var files = []
+var files = [];
 
 // set interval
 let intervalId = setInterval(() => {
-  let targets = files.concat()
-  files = []
+  let targets = files.concat();
+  files = [];
   if (targets.length > 0) {
-    upload(targets)
+    upload(targets);
   }
-}, 5 * 1000)
+}, 5 * 1000);

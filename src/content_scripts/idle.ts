@@ -1,11 +1,11 @@
-import { appendRoot } from './append'
-import { retrieveVcards } from '../lib/retrieve'
+import { appendRoot } from "./append";
+import { retrieveVcards } from "../lib/retrieve";
 
 const updateContents = (): void => {
-  appendRoot()
-  retrieveVcards()
-}
+  appendRoot();
+  retrieveVcards();
+};
 
-updateContents()
+updateContents();
 
-export {}
+export {};

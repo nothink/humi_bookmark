@@ -1,4 +1,4 @@
-import { MdBookmarks } from 'react-icons/md'
+import { MdBookmarks } from "react-icons/md";
 
 const App = (): JSX.Element => {
   return (
@@ -7,7 +7,7 @@ const App = (): JSX.Element => {
         <MdBookmarks />
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

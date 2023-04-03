@@ -5,32 +5,32 @@ module.exports = {
     webextensions: true,
   },
   extends: [
-    'eslint:recommended',
+    "eslint:recommended",
     // 'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-    'standard-with-typescript',
-    'prettier',
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "standard-with-typescript",
+    "prettier",
   ],
   overrides: [],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: "latest",
     ecmaFeatures: {
       jsx: true,
     },
-    sourceType: 'module',
-    project: ['./tsconfig.json'],
+    sourceType: "module",
+    project: ["./tsconfig.json"],
   },
-  plugins: ['react', '@typescript-eslint', 'unused-imports'],
+  plugins: ["react", "@typescript-eslint", "unused-imports"],
   rules: {
-    'unused-imports/no-unused-imports': 'error',
+    "unused-imports/no-unused-imports": "error",
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
-  ignorePatterns: ['dist/', 'node_modules', '_old'],
-}
+  ignorePatterns: ["dist/", "node_modules", "_old"],
+};

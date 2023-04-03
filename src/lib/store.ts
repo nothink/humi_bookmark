@@ -1,13 +1,13 @@
-import { getBucket } from '@extend-chrome/storage'
+import { getBucket } from "@extend-chrome/storage";
 
-const BUCKET_KEY = 'dqx9mbrpz1jhx'
+const BUCKET_KEY = "dqx9mbrpz1jhx";
 
 interface VcardStore {
-  sent: string[]
-  queue: string[]
+  sent: string[];
+  queue: string[];
 }
 
-const bucket = getBucket<VcardStore>(BUCKET_KEY, 'local')
+const bucket = getBucket<VcardStore>(BUCKET_KEY, "local");
 
 /**
  * キューにvcardのキーを追加する
@@ -16,9 +16,9 @@ const bucket = getBucket<VcardStore>(BUCKET_KEY, 'local')
 export const pushQueues = async (keys: string[]): Promise<VcardStore> => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
-  console.log(`keys of input: ${keys.toString()}`)
-  const current = await bucket.get({ queue: [] as string[] })
-  const joined = [...new Set([...current.queue, ...keys])]
-  console.log(`keys of stored: ${joined.toString()}`)
-  return await bucket.set({ queue: joined })
-}
+  console.log(`keys of input: ${keys.toString()}`);
+  const current = await bucket.get({ queue: [] as string[] });
+  const joined = [...new Set([...current.queue, ...keys])];
+  console.log(`keys of stored: ${joined.toString()}`);
+  return await bucket.set({ queue: joined });
+};

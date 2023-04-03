@@ -1,11 +1,11 @@
 // UA -> iOS Safari
 chrome.webRequest.onBeforeSendHeaders.addListener(
   function (info) {
-    let headers = info.requestHeaders
+    let headers = info.requestHeaders;
     headers.forEach(function (header, i) {
-      if (header.name.toLowerCase() == 'user-agent') {
+      if (header.name.toLowerCase() == "user-agent") {
         header.value =
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Mobile/15E148 Safari/604.1'
+          "Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Mobile/15E148 Safari/604.1";
         // // https://sites.google.com/site/kairera0467/index/gfkari/trash
         // // 基本的にUAしか見ていない？
         // // バージョン違いはアップデートアラートが出る
@@ -15,26 +15,26 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 
         // header.value = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 CaBaseApp/1.0(jp.co.cyberagent.gf;2.7.18;ja-JP) CaWebApp/1.0(jp.co.cyberagent.gf;2.7.18;ja-JP)";
       }
-    })
-    return { requestHeaders: headers }
+    });
+    return { requestHeaders: headers };
   },
   {
-    urls: ['*://vcard.ameba.jp/*', '*://*.cloudfront.net/vcard/*'],
+    urls: ["*://vcard.ameba.jp/*", "*://*.cloudfront.net/vcard/*"],
     types: [
-      'csp_report',
-      'font',
-      'image',
-      'main_frame',
-      'media',
-      'object',
-      'other',
-      'ping',
-      'script',
-      'stylesheet',
-      'sub_frame',
-      'websocket',
-      'xmlhttprequest',
+      "csp_report",
+      "font",
+      "image",
+      "main_frame",
+      "media",
+      "object",
+      "other",
+      "ping",
+      "script",
+      "stylesheet",
+      "sub_frame",
+      "websocket",
+      "xmlhttprequest",
     ],
   },
-  ['blocking', 'requestHeaders']
-)
+  ["blocking", "requestHeaders"]
+);
