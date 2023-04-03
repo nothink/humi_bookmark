@@ -6,10 +6,8 @@ import App from "../components/App";
 
 /**
  * 既存DOMにReactのrootをくっつける
- * ついでに既存DOMから引っこ抜いたvcardリソースのURLがあるなら対応する
- * @param vcards 既存DOMから引っこ抜いてきたvcardリソースのURL
  */
-export const appendRoot = (vcards: string[]): void => {
+export const appendRoot = (): void => {
   const elem = document.createElement("div");
   // set up element
   elem.id = "crx-root";
@@ -21,8 +19,6 @@ export const appendRoot = (vcards: string[]): void => {
 
   document.body.append(elem);
   const root = createRoot(elem);
-
-  console.log(vcards);
 
   root.render(
     <React.StrictMode>

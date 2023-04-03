@@ -7,18 +7,23 @@ interface VcardStore {
   queue: string[];
 }
 
-const bucket = getBucket<VcardStore>(BUCKET_KEY, "local");
+const bucket = getBucket<VcardStore>(BUCKET_KEY);
 
 /**
  * キューにvcardのキーを追加する
  * @param keys キューに追加したいstring[]
  */
-export const pushQueues = async (keys: string[]): Promise<VcardStore> => {
+export const pushQueues = (keys: string[]): void => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
-  console.log(`keys of input: ${keys.toString()}`);
-  const current = await bucket.get({ queue: [] as string[] });
-  const joined = [...new Set([...current.queue, ...keys])];
-  console.log(`keys of stored: ${joined.toString()}`);
-  return await bucket.set({ queue: joined });
+  bucket.get({ queue: [] as string[] }).then(
+    (current: { queue: string[] }) => {
+      const joined = [...new Set([...current.queue, ...keys])];
+      bucket.set({ queue: joined }).then(
+        (_: { queue: string[] }) => {},
+        () => {}
+      );
+    },
+    () => {}
+  );
 };

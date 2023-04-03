@@ -51,7 +51,11 @@ export default defineManifest(async (env) => ({
     ],
   },
 
-  permissions: ["declarativeNetRequest", "declarativeNetRequestFeedback"],
+  permissions: [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+  ],
 
   host_permissions: ["*://vcard.ameba.jp/*"],
 }));
