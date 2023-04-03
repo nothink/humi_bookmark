@@ -9,6 +9,9 @@ const [major, minor, patch, label = "0"] = version
   // split into version parts
   .split(/[.-]/);
 
+/**
+ * Manifest definitions of this Chrome Extensions
+ */
 export default defineManifest(async (env) => ({
   manifest_version: 3,
   name:
