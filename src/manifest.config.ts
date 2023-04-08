@@ -52,6 +52,7 @@ export default defineManifest(async (env) => ({
   },
 
   permissions: [
+    "alarms",
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
     "storage",
