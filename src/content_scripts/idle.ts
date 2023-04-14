@@ -1,10 +1,10 @@
 import { appendRoot } from "./append";
 import { retrieveVcards } from "../lib/retrieve";
-import { enqueue } from "../lib/store";
+import { enqueueSync } from "../lib/store";
 
 const updateContents = (): void => {
   const vcards = retrieveVcards();
-  enqueue(vcards);
+  enqueueSync(vcards);
   appendRoot();
 };
 

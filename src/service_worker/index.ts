@@ -6,7 +6,9 @@ chrome.alarms
   );
 
 chrome.alarms.onAlarm.addListener(() => {
-  console.log(Date.now());
+  // FIXME: これだとキューが空でもAlarmが回るので改善したい
+  const now = new Date(Date.now());
+  console.log(now.toTimeString());
 });
 
 export {};
