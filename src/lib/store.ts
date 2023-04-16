@@ -16,15 +16,11 @@ const bucket = getBucket<VcardStore>(BUCKET_KEY);
 export const enqueue = async (keys: string[]): Promise<void> => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
-  const current = await bucket.get();
+  const current = await bucket.get({ queue: [] as string[] });
 
-  // 一応このアルゴリズムでは sent と queue が独立のはず
-  // sent と queue の和集合に含まれないものを queue に追加する
-  const all = [...current.sent, ...current.queue];
-  const additions = keys.filter((item) => !all.includes(item));
-  const nextQueue = [...current.queue, ...additions];
+  const joined = [...new Set([...current.queue, ...keys])];
 
-  await bucket.set({ queue: nextQueue });
+  await bucket.set({ queue: joined });
 };
 
 /**

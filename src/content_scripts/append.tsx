@@ -11,7 +11,7 @@ export const appendRoot = (): void => {
   const elem = document.createElement("div");
   // set up element
   elem.id = "crx-root";
-  elem.style.position = "absolute";
+  elem.style.position = "fixed";
   elem.style.top = "0px";
   elem.style.left = "0px";
   elem.style.width = "auto";
