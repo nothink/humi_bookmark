@@ -1,5 +1,9 @@
 import { dequeue } from "./store";
 
+/**
+ * URLのリストを収集エンドポイントに送信する
+ * @param urls 送信したいURL文字列
+ */
 export const submit = async (urls: string[]): Promise<void> => {
   // put array to api.
   const endpoint =
@@ -15,10 +19,12 @@ export const submit = async (urls: string[]): Promise<void> => {
   });
 };
 
+/**
+ * キューに溜まってる分をアップロードする
+ */
 export const upload = (): void => {
   dequeue().then(
     (keys: string[]) => {
-      console.log("keys: ", keys);
       submit(keys).then(
         () => {},
         () => {}
