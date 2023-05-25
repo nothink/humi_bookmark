@@ -1,4 +1,5 @@
 import { upload } from "../lib/upload";
+import { enqueueSync } from "../lib/store";
 
 chrome.alarms
   .create("humi_bookmark", { delayInMinutes: 1, periodInMinutes: 1 })
@@ -13,5 +14,14 @@ chrome.alarms.onAlarm.addListener(() => {
   console.log("date: ", now.toTimeString());
   upload();
 });
+
+chrome.webRequest.onBeforeRequest.addListener(
+  (details) => {
+    const target = details.url.split("?")[0].split("&")[0];
+    enqueueSync([target]);
+  },
+  { urls: ["https://dqx9mbrpz1jhx.cloudfront.net/vcard/*"] },
+  []
+);
 
 export {};

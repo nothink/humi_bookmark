@@ -22,13 +22,29 @@ export default defineManifest(async (env) => ({
   version_name: version,
   description: "GF(仮)の効率化拡張",
   icons: { 128: "humio_128.png" },
+
+  permissions: [
+    "alarms",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "webRequest",
+  ],
+
+  host_permissions: [
+    "https://vcard.ameba.jp/*",
+    "https://dqx9mbrpz1jhx.cloudfront.net/vcard/*",
+  ],
+
   action: {
     default_title: "文緒ブックマーク v2",
   },
+
   background: {
     service_worker: "src/service_worker/index.ts",
     type: "module",
   },
+
   content_scripts: [
     {
       matches: ["*://vcard.ameba.jp/*"],
@@ -50,13 +66,4 @@ export default defineManifest(async (env) => ({
       },
     ],
   },
-
-  permissions: [
-    "alarms",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback",
-    "storage",
-  ],
-
-  host_permissions: ["*://vcard.ameba.jp/*"],
 }));

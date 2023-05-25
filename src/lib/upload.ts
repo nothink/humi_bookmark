@@ -25,6 +25,7 @@ export const submit = async (urls: string[]): Promise<void> => {
 export const upload = (): void => {
   dequeue().then(
     (keys: string[]) => {
+      console.log(keys);
       submit(keys).then(
         () => {},
         () => {}
