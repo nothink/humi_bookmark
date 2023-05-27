@@ -35,14 +35,15 @@ export const enqueueSync = (keys: string[]): void => {
 };
 
 /**
- * キューに蓄積されたvcardのオブジェクトキー配列を全て取得する(async)
+ * キューに蓄積されたvcardのオブジェクトキー配列から、まだ送信されていないものを全て取得する(async)
  * @returns キューに蓄積されたstring[]
  */
 export const dequeue = async (): Promise<string[]> => {
   const current = await bucket.get();
-  const result = current.queue;
+  const returnValue = current.queue.filter((x) => !current.sent.includes(x));
+  const nestSent = [...new Set([...current.sent, ...current.queue])];
 
-  await bucket.set({ queue: [] });
+  await bucket.set({ queue: [], sent: nestSent });
 
-  return result;
+  return returnValue;
 };
