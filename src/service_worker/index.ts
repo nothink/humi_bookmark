@@ -13,10 +13,12 @@ chrome.alarms.onAlarm.addListener(() => {
   const now = new Date(Date.now());
   console.log("date: ", now.toTimeString());
   upload();
+  // FIXME: ここでキューが空の時にAlarmをクリアしていい
 });
 
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
+    // FIXME: Alarmを追加するとしたらここ？
     const target = details.url.split("?")[0].split("&")[0];
     enqueueSync([target]);
   },

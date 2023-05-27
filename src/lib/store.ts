@@ -17,7 +17,6 @@ export const enqueue = async (keys: string[]): Promise<void> => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
   const current = await bucket.get({ queue: [] as string[] });
-
   const joined = [...new Set([...current.queue, ...keys])];
 
   await bucket.set({ queue: joined });
@@ -40,10 +39,17 @@ export const enqueueSync = (keys: string[]): void => {
  */
 export const dequeue = async (): Promise<string[]> => {
   const current = await bucket.get();
-  const returnValue = current.queue.filter((x) => !current.sent.includes(x));
-  const nestSent = [...new Set([...current.sent, ...current.queue])];
+  const queue = current.queue ?? [];
+  const sent = current.sent ?? [];
 
-  await bucket.set({ queue: [], sent: nestSent });
+  const returnValue = queue.filter((x) => {
+    if (sent.length === 0) return true;
+    return !sent.includes(x);
+  });
+
+  const nextSent = [...new Set([...sent, ...queue])];
+
+  await bucket.set({ queue: [], sent: nextSent });
 
   return returnValue;
 };
