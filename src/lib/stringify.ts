@@ -11,11 +11,11 @@ const stringifyNode = (node: ChildNode): string => {
 };
 
 /**
- * Parse Document to array of string
+ * Parse DOM of a Document to string
  * @param doc HTML Document
- * @returns array of strings
+ * @returns string
  */
-export const parseDoc = (doc: Document): string => {
+export const stringifyDocument = (doc: Document): string => {
   const strs: string[] = [];
   const nodes = doc.childNodes;
   nodes.forEach((node: ChildNode): void => {
