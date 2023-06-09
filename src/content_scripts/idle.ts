@@ -1,3 +1,7 @@
+/**
+ * document_idleで発火するcontent_scripts
+ */
+
 import { appendRoot } from "./append";
 import { retrieveVcards } from "../lib/retrieve";
 import { enqueueSync } from "../lib/store";

@@ -5,7 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import App from "../components/App";
 
 /**
- * 既存DOMにReactのrootをくっつける
+ * 既存DOMにReactのApp rootをくっつける
  */
 export const appendRoot = (): void => {
   const elem = document.createElement("div");

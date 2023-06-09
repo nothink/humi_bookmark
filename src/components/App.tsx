@@ -3,20 +3,22 @@ import { MdBookmarks } from "react-icons/md";
 import { useDisclosure } from "@mantine/hooks";
 import { ActionIcon, Drawer, Select } from "@mantine/core";
 
+/**
+ * ゲーム画面に挿入するためのReact Appをコンポーネント
+ * @returns Appのルートコンポーネント
+ */
 const App = (): JSX.Element => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <div className="App">
-      <Drawer size="xs" opened={opened} onClose={close} title="ブクマく">
+      <Drawer size="xs" opened={opened} onClose={close} title="Bookmark">
         <Select
-          label="Your favorite framework/library"
+          label="User Agent"
           placeholder="Pick one"
           data={[
-            { value: "react", label: "React" },
-            { value: "ng", label: "Angular" },
-            { value: "svelte", label: "Svelte" },
-            { value: "vue", label: "Vue" },
+            { value: "iossafari", label: "iOS Safari" },
+            { value: "macchrome", label: "Chrome(Mac)" },
           ]}
         />
         {/* Drawer content */}
