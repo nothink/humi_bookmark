@@ -3,7 +3,7 @@
  * @param node HTML Node
  * @returns a string
  */
-const stringifyNode = (node: ChildNode): string => {
+export const stringifyNode = (node: ChildNode): string => {
   if (node instanceof Element) {
     return node.outerHTML;
   }
