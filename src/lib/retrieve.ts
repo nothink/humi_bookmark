@@ -1,12 +1,9 @@
-import { stringifyDocument } from "./stringify";
-
 /**
  * retrieve strings with "vcard/"
  */
-export const retrieveVcards = (): string[] => {
-  const parsed = stringifyDocument(document);
+export const retrieveVcards = (html: string): string[] => {
   const regex = /vcard\/[-_.a-zA-Z0-9/+]*\.[a-zA-Z0-9]+/g;
-  const matches = Array.from(parsed.matchAll(regex), (m) => m[0]);
+  const matches = Array.from(html.matchAll(regex), (m) => m[0]);
   // remove dups
   const nodups = [...new Set(matches)];
   // create urls

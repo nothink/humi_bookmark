@@ -10,10 +10,11 @@ interface VcardStore {
 const bucket = getBucket<VcardStore>(BUCKET_KEY);
 
 /**
- * キューにvcardのオブジェクトキー配列を追加する(async)
- * @param keys キューに追加したいstring[]
+/**
+ * Add an array of vcard object keys to the queue (async)
+ * @param keys An array of string keys to add to the queue
  */
-export const enqueue = async (keys: string[]): Promise<void> => {
+const enqueue = async (keys: string[]): Promise<void> => {
   // TODO: レースコンディション怖いけど、JavaScriptの仕様的にいけるっぽい？
   // https://groups.google.com/a/chromium.org/g/chromium-extensions/c/pKqKE7Ibq54
   const current = await bucket.get({ queue: [] as string[] });
@@ -23,8 +24,8 @@ export const enqueue = async (keys: string[]): Promise<void> => {
 };
 
 /**
- * キューにvcardのオブジェクトキー配列を追加する(not async)
- * @param keys キューに追加したいstring[]
+ * Add an array of vcard object keys to the queue (not async)
+ * @param keys An array of string keys to add to the queue
  */
 export const enqueueSync = (keys: string[]): void => {
   enqueue(keys).then(
@@ -34,8 +35,8 @@ export const enqueueSync = (keys: string[]): void => {
 };
 
 /**
- * キューに蓄積されたvcardのオブジェクトキー配列から、まだ送信されていないものを全て取得する(async)
- * @returns キューに蓄積されたstring[]
+ * Get all vcard object keys that have not yet been sent in the queue (async)
+ * @returns An array of string keys accumulated in the queue
  */
 export const dequeue = async (): Promise<string[]> => {
   const current = await bucket.get();
@@ -46,7 +47,6 @@ export const dequeue = async (): Promise<string[]> => {
     if (sent.length === 0) return true;
     return !sent.includes(x);
   });
-
   const nextSent = [...new Set([...sent, ...queue])];
 
   await bucket.set({ queue: [], sent: nextSent });

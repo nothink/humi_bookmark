@@ -3,12 +3,22 @@
  */
 const unuseds = ["ambHeader", "ambFooter"];
 
+/**
+ * いらない要素を削除する
+ * @param ids elementのid
+ */
 const remove = (ids: string[]): void => {
   ids.forEach((id: string) => {
     document.getElementById(id)?.remove();
   });
 };
 
-remove(unuseds);
+/**
+ * document_end時のメインエントリポイント
+ */
+const main = (): void => {
+  remove(unuseds);
+};
 
+main();
 export {};
