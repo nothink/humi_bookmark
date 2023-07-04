@@ -1,5 +1,7 @@
 import { getBucket } from "@extend-chrome/storage";
 
+// TODO: モックがないとテストが書けない？
+
 const BUCKET_KEY = "dqx9mbrpz1jhx";
 
 interface VcardStore {

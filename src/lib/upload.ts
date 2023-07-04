@@ -1,5 +1,7 @@
 import { dequeue } from "./store";
 
+// TODO: テスト書きづらい
+
 /**
  * URLのリストを収集エンドポイントに送信する
  * @param urls 送信したいURL文字列
