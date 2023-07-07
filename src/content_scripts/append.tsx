@@ -25,6 +25,6 @@ export const appendRoot = (): void => {
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <App />
       </MantineProvider>
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 };

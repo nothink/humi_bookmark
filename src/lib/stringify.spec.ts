@@ -32,7 +32,7 @@ describe("stringifyDocument", () => {
   it("stringifyDocument should return the outerHTML of a single element document", () => {
     const doc = new DOMParser().parseFromString(
       "<html><head></head><body></body></html>",
-      "text/html"
+      "text/html",
     );
     const result = stringifyDocument(doc);
     expect(result).toBe("<html><head></head><body></body></html>");
@@ -41,11 +41,11 @@ describe("stringifyDocument", () => {
   it("stringifyDocument should return the outerHTML of all child nodes of a document", () => {
     const doc = new DOMParser().parseFromString(
       "<html><head></head><body><div></div><p></p></body></html>",
-      "text/html"
+      "text/html",
     );
     const result = stringifyDocument(doc);
     expect(result).toBe(
-      "<html><head></head><body><div></div><p></p></body></html>"
+      "<html><head></head><body><div></div><p></p></body></html>",
     );
   });
 });

@@ -15,7 +15,7 @@ chrome.alarms
   .create("humi_bookmark", { delayInMinutes: 1, periodInMinutes: 1 })
   .then(
     () => {},
-    () => {}
+    () => {},
   );
 
 chrome.alarms.onAlarm.addListener((alarm) => {
@@ -29,7 +29,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     enqueueSync([target]);
   },
   { urls: ["https://dqx9mbrpz1jhx.cloudfront.net/vcard/*"] },
-  []
+  [],
 );
 
 export {};

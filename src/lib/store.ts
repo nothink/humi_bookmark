@@ -32,7 +32,7 @@ const enqueue = async (keys: string[]): Promise<void> => {
 export const enqueueSync = (keys: string[]): void => {
   enqueue(keys).then(
     () => {},
-    () => {}
+    () => {},
   );
 };
 

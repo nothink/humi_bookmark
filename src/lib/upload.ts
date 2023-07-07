@@ -30,9 +30,9 @@ export const upload = (): void => {
       console.log(keys);
       submit(keys).then(
         () => {},
-        () => {}
+        () => {},
       );
     },
-    () => {}
+    () => {},
   );
 };
