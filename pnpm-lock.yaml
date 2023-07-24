@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^18.2.6
     version: 18.2.6
   '@types/web':
-    specifier: ^0.0.107
-    version: 0.0.107
+    specifier: ^0.0.111
+    version: 0.0.111
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.61.0
     version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
@@ -1008,8 +1008,8 @@ packages:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
     dev: true
 
-  /@types/web@0.0.107:
-    resolution: {integrity: sha512-ktJUwnQK/1O2Zce3rQ+NRUL9n3wHpR7mnO1ZwnFsWluYFJpDaW63fWKVfKsgveJ9OTyRi7S9fAXMUxgrTXC/Yg==}
+  /@types/web@0.0.111:
+    resolution: {integrity: sha512-OnLWZBNMXlvTsAalsPcVyVkxW76yG2QQsRPbRijMQxCG791IH9sAIAsg1tcDDK8p5JwHW0GV3/uYOg+RRqGrOw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6):
