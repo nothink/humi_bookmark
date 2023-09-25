@@ -29,8 +29,8 @@ dependencies:
 
 devDependencies:
   '@crxjs/vite-plugin':
-    specifier: 2.0.0-beta.18
-    version: 2.0.0-beta.18
+    specifier: 2.0.0-beta.19
+    version: 2.0.0-beta.19
   '@types/chrome':
     specifier: ^0.0.246
     version: 0.0.246
@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^18.2.6
     version: 18.2.6
   '@types/web':
-    specifier: ^0.0.114
-    version: 0.0.114
+    specifier: ^0.0.115
+    version: 0.0.115
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.61.0
     version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
@@ -172,8 +172,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@crxjs/vite-plugin@2.0.0-beta.18:
-    resolution: {integrity: sha512-3jW20cUE04wTTg8HtoQD7bIL4Nhu91pRX4PHazMu2/tzzSTaR4stW5DHRIJOjFuRpOSCNNpyamyXwxS6qOv7Bg==}
+  /@crxjs/vite-plugin@2.0.0-beta.19:
+    resolution: {integrity: sha512-MHJgSwRktpb436ANPoR67cosjCZ6cpq472h4ImAs8POVw8NxZyNMTX4ayoRgTzmCNy2Xve3oOYt/pm+GO9+XfQ==}
     dependencies:
       '@rollup/pluginutils': 4.2.1
       '@webcomponents/custom-elements': 1.6.0
@@ -1008,8 +1008,8 @@ packages:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
     dev: true
 
-  /@types/web@0.0.114:
-    resolution: {integrity: sha512-nrkwsB8u0VNHwElFSl6ZCgu0BCbsQu5BPq7mJtBpW7rYBmiLZNWE5KqcHDw8GXQMqWsnFB3EnXsAx7UysQwcMg==}
+  /@types/web@0.0.115:
+    resolution: {integrity: sha512-IBtUgtxnITC7WTCg4tv6kCnSP0T+fM+3PzQPIzLzJY1DDlhBFKM/9+uMURw14YweWPDiFNIZ94Gc1bJtwow97g==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6):
