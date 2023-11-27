@@ -32,8 +32,8 @@ devDependencies:
     specifier: 2.0.0-beta.21
     version: 2.0.0-beta.21
   '@types/chrome':
-    specifier: ^0.0.251
-    version: 0.0.251
+    specifier: ^0.0.253
+    version: 0.0.253
   '@types/react':
     specifier: ^18.2.14
     version: 18.2.14
@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^18.2.6
     version: 18.2.6
   '@types/web':
-    specifier: ^0.0.119
-    version: 0.0.119
+    specifier: ^0.0.122
+    version: 0.0.122
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.61.0
     version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
@@ -944,8 +944,8 @@ packages:
     resolution: {integrity: sha512-mEo1sAde+UCE6b2hxn332f1g1E8WfYRu6p5SvTKr2ZKC1f7gFJXk4h5PyGP9Dt6gCaG8y8XhwnXWC6Iy2cmBng==}
     dev: true
 
-  /@types/chrome@0.0.251:
-    resolution: {integrity: sha512-UF+yr0LEKWWGsKxQ5A3XOSF5SNoU1ctW3pXcWJPpT8OOUTEspYeaLU8spDKe+6xalXeMTS0TBrX1g0b6qlWmkw==}
+  /@types/chrome@0.0.253:
+    resolution: {integrity: sha512-ZnBlbeoje0XaBrJbFCXI8DsDfqvqdoWQO5NSGecMCHFC8W8z/rb/n7lI1FHob+TFKKLR4L2c3QJJSFLwtVc9TA==}
     dependencies:
       '@types/filesystem': 0.0.32
       '@types/har-format': 1.2.11
@@ -1008,8 +1008,8 @@ packages:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
     dev: true
 
-  /@types/web@0.0.119:
-    resolution: {integrity: sha512-CQVOcEWrxr0MXbQbR3rrw6GHo2mcr8WlhLHQkOKDhhySTjz15/35jk0Zm2FbHRyCvSEjr/J7A2iDD5GRrGxE2A==}
+  /@types/web@0.0.122:
+    resolution: {integrity: sha512-Hlo88Y4MlRAs0ZNWQOpwMah2iZIRaRyytWsHNC1Dv6isH+Z+s0LFy2XzmJjcwGtK6jNI0VJ15DAd+0QKu7fnJQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6):
