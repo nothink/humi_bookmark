@@ -29,11 +29,11 @@
     "react-icons": "^4.10.1"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "2.0.0-beta.21",
+    "@crxjs/vite-plugin": "2.0.0-beta.23",
     "@types/chrome": "^0.0.256",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "@types/web": "^0.0.134",
+    "@types/web": "^0.0.135",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
